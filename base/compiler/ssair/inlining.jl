@@ -926,7 +926,6 @@ end
 function inline_apply!(
     ir::IRCode, idx::Int, stmt::Expr, sig::Signature,
     state::InliningState, todo::Vector{Pair{Int, Any}})
-    stmt = ir.stmts[idx][:inst]
     while sig.f === Core._apply_iterate
         info = ir.stmts[idx][:info]
         if isa(info, UnionSplitApplyCallInfo)
